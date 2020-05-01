@@ -46,7 +46,7 @@ article{border-top:1px solid black;}
 				<a href='{post.acf.article1.pdf}' target="_blank">PDF</a>
 			</div>
 			{/if}
-			{#if post.acf.article2.pdf === ''}
+			{#if post.acf.article2.title === ''}
 			<div></div>
 			{:else}
 			<div>
@@ -56,7 +56,7 @@ article{border-top:1px solid black;}
 			</div>
 			{/if}
 
-{#if post.acf.article3.pdf === ''}
+{#if post.acf.article3.title === ''}
 			<div></div>
 			{:else}
 			<div>
