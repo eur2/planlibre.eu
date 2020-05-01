@@ -14,6 +14,8 @@
 	.flex {
 		display: flex;
 	}
+
+article{border-top:1px solid black;}
 </style>
 
 <svelte:head>
