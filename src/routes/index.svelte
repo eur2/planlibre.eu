@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`https://eurogroupe.org/dev/wp/wp-json/acf/v3/posts`)
+    return this.fetch(`https://eurogroupe.org/dev/wp/wp-json/wp/v2/posts`)
       .then((r) => r.json())
       .then((posts) => {
         return { posts };
@@ -23,11 +23,12 @@
   num="{post.acf.num}"
   date="{post.acf.date}"
   pdf="{post.acf.pdf}"
+  cover={post.acf.cover.sizes.thumbnail}
 >
   <div class="content">
     {#if post.acf.image}
     <div>
-      <img src="{post.acf.image.sizes.thumbnail}" width="600" alt="dg" />
+      <img src="{post.acf.image.sizes.medium}" width="600" alt="dg" />
     </div>
     {/if} {#if post.acf.article1.title === ''}
     <div></div>

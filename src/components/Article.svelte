@@ -1,5 +1,5 @@
 <script>
-  export let title, num, date, pdf;
+  export let title, num, date, pdf, cover;
   let visible;
   function handleToggle() {
     visible = !visible;
@@ -13,12 +13,15 @@
     justify-content: space-between;
     cursor: pointer;
   }
+
   .flex1 {
     flex: 1 1;
   }
+
   .flex2 {
     flex: 2 1;
   }
+
   .flex0 {
     flex: 0 1;
   }
@@ -37,6 +40,7 @@
       <a rel="noopener" target="_blank" href="{pdf}">PDF</a>
     </h2>
   </header>
+  <div><img src={cover} width="200" alt={num}></div>
   {#if visible}
   <slot></slot>
   {/if}
