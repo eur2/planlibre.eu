@@ -1,47 +1,35 @@
 <script>
   export let title, num, date, pdf, cover;
-  let visible;
+  let visible, hovering;
   function handleToggle() {
     visible = !visible;
   }
+  function enter() {
+    hovering = true;
+  }
+  function leave() {
+    hovering = false;
+  }
 </script>
 
-<style>
-  header {
-    padding: 0.25em 1em;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-
-  .flex1 {
-    flex: 1 1;
-  }
-
-  .flex2 {
-    flex: 2 1;
-  }
-
-  .flex0 {
-    flex: 0 1;
-  }
-
-  article {
-    border-top: 1px solid black;
-  }
-</style>
-
 <article>
-  <header class="flex" on:click="{handleToggle}">
+  <header
+    on:click="{handleToggle}"
+    on:mouseenter="{enter}"
+    on:mouseleave="{leave}"
+  >
     <h2 class="flex1">{num}</h2>
-    <h2 class="flex2">{title}</h2>
+    <h2 class="flex2">{#if title === ''}*****{:else}{title}{/if}</h2>
     <h2 class="flex2">{date}</h2>
     <h2 class="flex0">
       <a rel="noopener" target="_blank" href="{pdf}">PDF</a>
     </h2>
   </header>
-  <div><img src={cover} width="200" alt={num}></div>
-  {#if visible}
+  {#if hovering}
+  <div class="w50 absolute z10 flex jc-center ai-center">
+    <img src="{cover}" width="300" alt="PL{num}" />
+  </div>
+  {/if} {#if visible}
   <slot></slot>
   {/if}
 </article>

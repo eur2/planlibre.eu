@@ -6,21 +6,24 @@
 </script>
 
 <footer>
-  <div>
-    <button on:click="{handleToggle}">
+  <div class="bc marquee fixed b0 r0 z200">
+    <button class="p0111" on:click="{handleToggle}">
       +++Abonnement à <i>Plan Libre</i> 25€+++
     </button>
-  </div>
   {#if visible}
-  <div>
-    <button on:click="{handleToggle}">×</button>
+  <div class="p">
+    <div class="flex jc-sb">
+      <span></span>
+      <h3>title</h3>
+      <button on:click="{handleToggle}">×</button>
+    </div>
     <slot></slot>
-    <div className="flex wrap jc-center">
+    <div class="flex wrap jc-center">
       <a
         rel="noopener"
         target="_blank"
         href="https://www.paypal.com/webapps/hermes?token=5C288169KW5682405"
-        className="btn"
+        class="btn"
       >
         Souscrire
       </a>
@@ -28,7 +31,7 @@
         rel="noopener"
         target="_blank"
         href="https://maop.fr/soutenir-la-maison"
-        className="btn"
+        class="btn"
       >
         Soutenir la maison
       </a>
