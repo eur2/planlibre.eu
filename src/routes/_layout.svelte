@@ -14,18 +14,6 @@
   import Logo from "../components/Logo.svelte";
   export let posts;
 </script>
-<svelte:head>
-  <title>Plan Libre - Journal de la Maison de l'Architecture Occitanie-Pyrénées</title>
-  <meta name="description" content="Journal de la Maison de l'Architecture Occitanie-Pyrénées" />
-      <meta name="og:title" content="Plan Libre" />
-      <meta name="og:description" content="Journal de la Maison de l'Architecture Occitanie-Pyrénées" />
-      <meta name="og:type" content="website" />
-      <meta name="og:image" content="favicon.png" />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content="Plan Libre" />
-      <meta name="twitter:description" content="Journal de la Maison de l'Architecture Occitanie-Pyrénées" />
-      <meta name="twitter:image" content="favicon.png" />
-</svelte:head>
 
 <Header>
   {#each posts as post} {#if post.slug === 'header'} {@html
@@ -36,8 +24,8 @@
   <Logo/>
 </main>
 
-{#each posts as post} {#if post.slug === 'subscribe'}
 <Subscribe>
+  {#each posts as post} {#if post.slug === 'subscribe'}
   {@html post.content.rendered}
+  {/if} {/each}
 </Subscribe>
-{/if} {/each}

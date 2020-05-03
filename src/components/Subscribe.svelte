@@ -7,14 +7,14 @@
 
 <footer>
   <div class="bc marquee fixed b0 r0 z200">
-    <button class="p0111" on:click="{handleToggle}">
+    <button class="p0111 {visible ? 'none' : ''}" on:click="{handleToggle}">
       +++Abonnement à <i>Plan Libre</i> 25€+++
     </button>
   {#if visible}
   <div class="p">
     <div class="flex jc-sb">
       <span></span>
-      <h3>title</h3>
+      <h3>+++Abonnement annuel/10 numéros/25€+++</h3>
       <button on:click="{handleToggle}">×</button>
     </div>
     <slot></slot>

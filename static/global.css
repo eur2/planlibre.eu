@@ -134,6 +134,9 @@ article header:hover,
 article header:hover a {
   background-color: #eeee;
 }
+.none {
+  display: none;
+}
 .article {
   /* margin-block-end: 1em; */
   width: 50%;
