@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`https://pl.maop.fr/wp-json/wp/v2/posts/?per_page=100`)
+    return this.fetch(`https://pl.maop.fr/wp-json/wp/v2/posts`)
       .then((r) => r.json())
       .then((posts) => {
         return { posts };
