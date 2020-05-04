@@ -18,7 +18,7 @@
     on:mouseenter="{enter}"
     on:mouseleave="{leave}"
   >
-    <h2 class="flex1">PL{num}</h2>
+    <h2 class="flex1">PL {num}</h2>
     <h2 class="flex2">{#if title === ''}*****{:else}{title}{/if}</h2>
     <h2 class="flex2">{date}</h2>
     <h2 class="flex0">
