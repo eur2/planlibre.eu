@@ -1,5 +1,5 @@
 <header>
-  <div class="absolute z2" style="top: 0.5em; right: 1em;">
+  <div class="absolute" style="top: 0.5em; right: 1em;">
     <a href="https://maop.fr/">
       <svg
         data-name="Logo MAOP"

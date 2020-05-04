@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`https://eurogroupe.org/dev/wp/wp-json/wp/v2/pages`)
+    return this.fetch(`https://pl.maop.fr/wp-json/wp/v2/pages`)
       .then((r) => r.json())
       .then((posts) => {
         return { posts };

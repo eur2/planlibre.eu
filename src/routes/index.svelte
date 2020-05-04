@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`https://eurogroupe.org/dev/wp/wp-json/wp/v2/posts`)
+    return this.fetch(`https://pl.maop.fr/wp-json/wp/v2/posts/?per_page=100`)
       .then((r) => r.json())
       .then((posts) => {
         return { posts };
@@ -30,13 +30,13 @@
   // onMount(() => {
   $: randomPost = posts[Math.floor(Math.random() * 5 )];
 </script>
-<aside>
+<!-- <aside>
   <div class="fixed z100 t0 l0 r0 b0 flex jc-center ai-center">
     {#if randomPost && randomPost.acf.image}
     <img src="{randomPost.acf.image.sizes.medium}" width="800" alt="dg" />
 {/if}
   </div>
-</aside>
+</aside> -->
 <div class="sticky t0 p0111 bg-white flex jc-sb">
 <form role="search">
   <input
