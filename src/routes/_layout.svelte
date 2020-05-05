@@ -19,11 +19,8 @@
   {#each posts as post} {#if post.slug === 'header'} {@html
   post.content.rendered} {/if} {/each}
 </Header>
-<main>
   <slot></slot>
   <Logo/>
-</main>
-
 <Subscribe>
   {#each posts as post} {#if post.slug === 'subscribe'}
   {@html post.content.rendered}

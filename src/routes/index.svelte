@@ -1,7 +1,7 @@
 <script context="module">
   //https://pl.maop.fr/wp-json/wp/v2/posts?custom_per_page=200
   export function preload({ params, query }) {
-    return this.fetch(`https://eurogroupe.org/dev/wp/wp-json/wp/v2/posts`)
+    return this.fetch(`https://pl.maop.fr/wp-json/wp/v2/posts`)
       .then((r) => r.json())
       .then((posts) => {
         return { posts };
@@ -11,7 +11,9 @@
 
 <script>
   export let posts;
-  import Article from "../components/Article.svelte";
+  import Front from "../components/Front.svelte";
+  import Post from "../components/Post.svelte";
+
   let searchTerm = "";
   $: filteredPosts = posts.filter(
     (post) =>
@@ -29,16 +31,14 @@
   );
   // import { onMount } from "svelte";
   // onMount(() => {
-  $: randomPost = posts[Math.floor(Math.random() * 5 )];
+  $: randomPost = posts[Math.floor(Math.random() * 20 )];
 </script>
-<!-- <aside>
-  <div class="fixed z100 t0 l0 r0 b0 flex jc-center ai-center">
+<Front>
     {#if randomPost && randomPost.acf.image}
-    <img src="{randomPost.acf.image.sizes.medium}" width="800" alt="dg" />
+    <img src="{randomPost.acf.image.sizes.large}" width="800" alt="dg" />
 {/if}
-  </div>
-</aside> -->
-<div class="sticky t0 p0111 bg-white flex jc-sb">
+</Front>
+<nav class="sticky t0 p0111 bg-white flex jc-sb">
 <form role="search">
   <input
     type="text"
@@ -49,9 +49,10 @@
   />
 </form>
 <a href="https://www.instagram.com/plan_libre/" rel="noopener" target="_blank">Instagram</a>
-</div>
+</nav>
+<main>
 {#each filteredPosts as post}
-<Article
+<Post
   num="{post.acf.num}"
   title="{post.acf.title}"
   date="{post.acf.date}"
@@ -60,15 +61,15 @@
 >
   <div class="content flex">
     {#if post.acf.image}
-    <div class="p flex jc-center">
-      <img src="{post.acf.image.sizes.large}" width="800" alt="dg" />
+    <div class="p flex jc-center flex50">
+      <img src="{post.acf.image.sizes.large}" alt="dg" />
     </div>
     {/if}
-    <div class="p flex wrap jc-sa">
+    <div class="p flex wrap jc-sa flex50">
      {#if post.acf.article1.title === ''}
     <div></div>
     {:else}
-    <div class="p">
+    <div class="p flex50 article">
       <a href="{post.acf.article1.pdf}" rel="noopener" target="_blank">
         <div class="center">
           <h4>{post.acf.article1.author}</h4>
@@ -79,37 +80,38 @@
     {/if} {#if post.acf.article2.title === ''}
     <div></div>
     {:else}
-    <div class="p">
-      <a href="{post.acf.article1.pdf}" rel="noopener" target="_blank">
+    <div class="p flex50 article">
+      <a href="{post.acf.article2.pdf}" rel="noopener" target="_blank">
         <div class="center">
-          <h4>{post.acf.article1.author}</h4>
-          <h3>{post.acf.article1.title}</h3>
+          <h4>{post.acf.article2.author}</h4>
+          <h3>{post.acf.article2.title}</h3>
         </div>
       </a>
     </div>
     {/if} {#if post.acf.article3.title === ''}
     <div></div>
     {:else}
-    <div class="p">
-      <a href="{post.acf.article1.pdf}" rel="noopener" target="_blank">
+    <div class="p flex50 article">
+      <a href="{post.acf.article3.pdf}" rel="noopener" target="_blank">
         <div class="center">
-          <h4>{post.acf.article1.author}</h4>
-          <h3>{post.acf.article1.title}</h3>
+          <h4>{post.acf.article3.author}</h4>
+          <h3>{post.acf.article3.title}</h3>
         </div>
       </a>
     </div>
     {/if} {#if post.acf.article4.title === ''}
     <div></div>
     {:else}
-    <div class="p">
-      <a href="{post.acf.article1.pdf}" rel="noopener" target="_blank">
+    <div class="p flex50 article">
+      <a href="{post.acf.article4.pdf}" rel="noopener" target="_blank">
         <div class="center">
-          <h4>{post.acf.article1.author}</h4>
-          <h3>{post.acf.article1.title}</h3>
+          <h4>{post.acf.article4.author}</h4>
+          <h3>{post.acf.article4.title}</h3>
         </div>
       </a>
     </div>
     {/if}
   </div>
-</Article>
+</Post>
 {/each}
+</main>

@@ -40,7 +40,8 @@ body {
 }
 a,
 a:active,
-a:hover {
+a:hover,
+footer p a:hover {
   color: black;
   text-decoration: none;
   /* border-bottom: solid 1px black; */
@@ -210,6 +211,9 @@ article header:hover a {
 }
 .p0111 {
   padding: 0.25em 1em 0.25em 1em;
+}
+.flex50 {
+  flex: 50%;
 }
 .flex2 {
   flex: 2;
