@@ -12,6 +12,7 @@
     </button>
   {#if visible}
   <div class="p">
+
     <div class="flex jc-sb">
       <span></span>
       <h3>+++Abonnement annuel/10 numéros/25€+++</h3>
@@ -19,14 +20,17 @@
     </div>
     <slot></slot>
     <div class="flex wrap jc-center">
-      <a
-        rel="noopener"
-        target="_blank"
-        href="https://www.paypal.com/webapps/hermes?token=5C288169KW5682405"
-        class="btn"
-      >
-        Souscrire
-      </a>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="DET375QCYNA9U">
+        <table class="none">
+        <tr><td><input type="hidden" name="on0" value=""></td></tr><tr><td><select name="os0">
+          <option value="Abonnement annuel">Abonnement annuel : €25,00 EUR - annuel</option>
+        </select> </td></tr>
+        </table>
+        <input type="hidden" name="currency_code" value="EUR">
+        <input type="submit" class="btn" value="S’abonner">
+        </form>
       <a
         rel="noopener"
         target="_blank"

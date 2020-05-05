@@ -60,7 +60,7 @@
   <div class="content flex">
     {#if post.acf.image}
     <div class="p flex jc-center">
-      <img src="{post.acf.image.sizes.medium}" width="800" alt="dg" />
+      <img src="{post.acf.image.sizes.large}" width="800" alt="dg" />
     </div>
     {/if}
     <div class="p flex wrap jc-sa">
