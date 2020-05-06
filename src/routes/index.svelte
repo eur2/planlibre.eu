@@ -38,7 +38,7 @@
     <img src="{randomPost.acf.image.sizes.large}" width="800" alt="dg" />
 {/if}
 </Front>
-<nav class="sticky t0 p0111 bg-white flex jc-sb">
+<nav class="sticky t0 p251251 bg-white flex jc-sb">
 <form role="search">
   <input
     type="text"
