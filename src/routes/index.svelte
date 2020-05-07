@@ -35,7 +35,7 @@
 </script>
 <Front>
     {#if randomPost && randomPost.acf.image}
-    <img src="{randomPost.acf.image.sizes.large}" width="800" alt="dg" />
+    <img src="{randomPost.acf.image.sizes.large}" width="800" alt="plan libre" />
 {/if}
 </Front>
 <nav class="sticky t0 p251251 bg-white flex jc-sb">
@@ -62,7 +62,7 @@
   <div class="content flex">
     {#if post.acf.image}
     <div class="p flex jc-center flex50">
-      <img src="{post.acf.image.sizes.large}" alt="dg" />
+      <img src="{post.acf.image.sizes.large}" alt="plan libre" />
     </div>
     {/if}
     <div class="p flex wrap jc-sa flex50">
