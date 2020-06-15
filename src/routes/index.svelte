@@ -29,9 +29,11 @@
       post.acf.article4.author.toLowerCase().indexOf(searchTerm) !== -1 ||
       post.acf.article4.title.toLowerCase().indexOf(searchTerm) !== -1
   );
-  // import { onMount } from "svelte";
-  // onMount(() => {
-  $: randomPost = posts[Math.floor(Math.random() * 20 )];
+  let randomPost ="";
+  import { onMount } from "svelte";
+  onMount(() => {
+    randomPost = posts[Math.floor(Math.random() * 20 )];
+  })
 </script>
 <Front>
     {#if randomPost && randomPost.acf.image}
