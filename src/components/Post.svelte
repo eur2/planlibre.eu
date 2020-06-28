@@ -29,7 +29,10 @@
   <div class="w50 absolute z10 flex jc-center ai-center">
     <img src="{cover}" width="300" alt="PL{num}" />
   </div>
-  {/if} {#if visible}
-  <slot></slot>
   {/if}
+  <!-- {#if visible} -->
+  <div class="{visible ? 'block': 'none'}">
+    <slot></slot>
+  </div>
+  <!-- {/if} -->
 </article>

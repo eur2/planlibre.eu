@@ -33,11 +33,34 @@
   import { onMount } from "svelte";
   onMount(() => {
     randomPost = posts[Math.floor(Math.random() * 20 )];
+    var lazyImages = [].slice.call(document.querySelectorAll(".lazy"));
+    if (typeof IntersectionObserver !== "undefined") {
+      let lazyImageObserver = new IntersectionObserver(function (
+        entries,
+        observer
+      ) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            lazyImage.srcset = lazyImage.dataset.srcset;
+            lazyImage.classList.remove("lazy");
+            lazyImage.classList.add("loaded");
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+      lazyImages.forEach(function (lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    }
   })
 </script>
 <Front>
     {#if randomPost && randomPost.acf.image}
-    <img src="{randomPost.acf.image.sizes.large}" width="800" alt="plan libre" />
+    <!-- <img src="{randomPost.acf.image.sizes.large}" width="800" alt="plan libre" /> -->
+    <img src="{randomPost.acf.image.sizes.large}" srcset="{randomPost.acf.image.sizes.thumbnail} 400w, {randomPost.acf.image.sizes.medium} 800w, {randomPost.acf.image.sizes.large} 1600w" width="800" alt="plan libre" />
+
 {/if}
 </Front>
 <nav class="sticky t0 p251251 bg-white flex jc-sb">
@@ -64,7 +87,8 @@
   <div class="content flex">
     {#if post.acf.image}
     <div class="p flex jc-center flex50">
-      <img src="{post.acf.image.sizes.large}" alt="plan libre" />
+      <img class="lazy" src="" data-src="{post.acf.image.sizes.large}" srcset="" data-srcset="{post.acf.image.sizes.thumbnail} 400w, {post.acf.image.sizes.medium} 800w, {post.acf.image.sizes.large} 1600w" alt="Plan Libre Journal de la Maison de l'Architecture Occitanie-Pyrénées {post.acf.num} {post.acf.date} {post.acf.title}" />
+      <!-- <img src="{post.acf.image.sizes.large}" alt="plan libre" /> -->
     </div>
     {/if}
     <div class="p flex wrap jc-sa flex50">

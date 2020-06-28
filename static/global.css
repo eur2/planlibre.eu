@@ -46,15 +46,18 @@ footer p a:hover {
   text-decoration: none;
   /* border-bottom: solid 1px black; */
 }
-p a {
+p a,
+h1 a {
   text-decoration: underline;
 }
 p a:hover,
+h1 a:hover,
 .article:hover {
   text-decoration: underline;
   color: rgb(255, 0, 255);
 }
-p {
+p,
+h1 {
   margin-block-start: 1em;
   margin-block-end: 1em;
 }
@@ -100,6 +103,13 @@ img {
   max-width: 100%;
   height: auto;
   object-fit: contain !important;
+  transition: opacity 0.2s;
+}
+.lazy {
+  opacity: 0;
+}
+.loaded {
+  opacity: 1;
 }
 .img {
   width: 50%;
@@ -112,7 +122,8 @@ h4 {
 }
 h1,
 h2,
-h3 {
+h3,
+p {
   font-size: 1em;
 }
 h4,
@@ -138,6 +149,9 @@ article header {
 article header:hover,
 article header:hover a {
   background-color: #eeee;
+}
+.block {
+  display: block;
 }
 .none {
   display: none;
