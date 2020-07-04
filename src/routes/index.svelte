@@ -14,6 +14,7 @@
   import Front from "../components/Front.svelte";
   import Post from "../components/Post.svelte";
 
+  let randomPost = posts[Math.floor(Math.random() * 20 )];
   let searchTerm = "";
   $: filteredPosts = posts.filter(
     (post) =>
@@ -29,10 +30,9 @@
       post.acf.article4.author.toLowerCase().indexOf(searchTerm) !== -1 ||
       post.acf.article4.title.toLowerCase().indexOf(searchTerm) !== -1
   );
-  let randomPost ="";
   import { onMount } from "svelte";
   onMount(() => {
-    randomPost = posts[Math.floor(Math.random() * 20 )];
+    // randomPost = posts[Math.floor(Math.random() * 20 )];
     var lazyImages = [].slice.call(document.querySelectorAll(".lazy"));
     if (typeof IntersectionObserver !== "undefined") {
       let lazyImageObserver = new IntersectionObserver(function (
@@ -59,7 +59,7 @@
 <Front>
     {#if randomPost && randomPost.acf.image}
     <!-- <img src="{randomPost.acf.image.sizes.large}" width="800" alt="plan libre" /> -->
-    <img src="{randomPost.acf.image.sizes.large}" srcset="{randomPost.acf.image.sizes.thumbnail} 400w, {randomPost.acf.image.sizes.medium} 800w, {randomPost.acf.image.sizes.large} 1600w" width="800" alt="plan libre" />
+    <img src="{randomPost.acf.image.sizes.large}" srcset="{randomPost.acf.image.sizes.thumbnail} 400w, {randomPost.acf.image.sizes.medium} 800w, {randomPost.acf.image.sizes.large} 1600w" width="800" alt="plan libre journal" />
 
 {/if}
 </Front>
