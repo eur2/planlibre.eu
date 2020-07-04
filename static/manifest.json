@@ -1,8 +1,8 @@
 {
   "background_color": "#ffffff",
   "theme_color": "#ff00ff",
-  "name": "Plan Libre",
-  "short_name": "PL",
+  "name": "Plan Libre - Journal de la Maison de l'Architecture Occitanie-Pyrénées",
+  "short_name": "Plan Libre",
   "display": "minimal-ui",
   "start_url": "/",
   "icons": [

@@ -6,7 +6,7 @@
 </script>
 
 <footer>
-  <div class="bc marquee fixed b0 r0 z200">
+  <div class="bc fixed b0 r0 z200 m600-l0 center">
     <button class="p251251 {visible ? 'none' : ''}" on:click="{handleToggle}">
       +++Abonnement à <i>Plan Libre</i> 25€+++
     </button>

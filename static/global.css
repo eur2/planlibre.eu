@@ -54,7 +54,7 @@ p a:hover,
 h1 a:hover,
 .article:hover {
   text-decoration: underline;
-  color: rgb(255, 0, 255);
+  color: #ff00ff;
 }
 p,
 h1 {
@@ -62,7 +62,7 @@ h1 {
   margin-block-end: 1em;
 }
 .bc {
-  background-color: rgb(255, 0, 255);
+  background-color: #ff00ff;
 }
 .bg-white {
   background-color: white;
@@ -298,5 +298,8 @@ article header:hover a {
 @media only screen and (max-width: 600px) {
   .content {
     flex-direction: column;
+  }
+  .m600-l0 {
+    left: 0;
   }
 }

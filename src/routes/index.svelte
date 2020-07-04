@@ -14,7 +14,7 @@
   import Front from "../components/Front.svelte";
   import Post from "../components/Post.svelte";
 
-  let randomPost = posts[Math.floor(Math.random() * 20 )];
+  let randomPost = "";
   let searchTerm = "";
   $: filteredPosts = posts.filter(
     (post) =>
@@ -32,7 +32,7 @@
   );
   import { onMount } from "svelte";
   onMount(() => {
-    // randomPost = posts[Math.floor(Math.random() * 20 )];
+    randomPost = posts[Math.floor(Math.random() * 20 )];
     var lazyImages = [].slice.call(document.querySelectorAll(".lazy"));
     if (typeof IntersectionObserver !== "undefined") {
       let lazyImageObserver = new IntersectionObserver(function (
